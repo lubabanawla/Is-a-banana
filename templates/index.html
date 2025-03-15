@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Feed</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Feed with Bouncing Banana</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
-<body>
-    <h1>Video Feed</h1>
-    <img src="{{ url_for('video_feed') }}" alt="Video Feed" width="1280" height="720">
+<body> 
+  <h1>Video Feed</h1>
+  <div id="container">
+    <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+    <img id="banana" src="{{ url_for('static', filename='bananaimage1.png') }}" alt="Bouncing Banana">
+  </div>
+  <script>
+    const staticBaseUrl = "{{ url_for('static', filename='') }}";
+  </script>
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>

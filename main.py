@@ -45,7 +45,7 @@ def gen_frames():
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             
             if banana_detected:
-                cv2.putText(frame, "Banana detected!", (10, 30), 
+                cv2.putText(frame, "Banana detected!", (10, 50),  # Modified: y-coordinate changed from 30 to 50
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                 print("Banana detected!")
             else:
