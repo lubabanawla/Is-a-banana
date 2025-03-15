@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Response
 import cv2
+import numpy as np
 
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)  # use the default camera
@@ -10,10 +11,16 @@ def gen_frames():
         if not success:
             break
         else:
-            # Encode the frame in JPEG format
+            hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+            lower_brown = np.array([10, 100, 20])
+            upper_brown = np.array([20, 255, 200])
+            mask = cv2.inRange(hsv, lower_brown, upper_brown)
+            brown_pixels = cv2.countNonZero(mask)
+            if brown_pixels > 500: 
+                print("Brown object detected!")
+
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
-            # Yield a byte string in the format required for a multipart response
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
