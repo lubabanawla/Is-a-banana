@@ -16,4 +16,4 @@ To run this project, follow these steps:
 
 ## Watch our demo
 
-[Insert link to your demo video here]
+[Insert link to demo video here]
