@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Feed with Bouncing Banana</title>
+  <title>Video Feed with Bouncing Banana and Minion Buddy</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body> 
@@ -11,6 +11,11 @@
   <div id="container">
     <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video Feed">
     <img id="banana" src="{{ url_for('static', filename='bananaimage1.png') }}" alt="Bouncing Banana">
+    <img id="bobbuddy" src="{{ url_for('static', filename='bobbuddy.png') }}" alt="Bob Buddy">
+    <div id="speech-bubble" class="hidden">
+      <p id="speech-text"></p>
+    </div>
+    <button id="action-button" class="hidden">Minion Action</button>
   </div>
   <script>
     const staticBaseUrl = "{{ url_for('static', filename='') }}";
