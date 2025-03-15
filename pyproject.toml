@@ -1,6 +1,6 @@
 [project]
 name = "isbanana"
-version = "0.1.0"
+version = "0.1.1"
 description = "Are you a banana? Probably not. But you can check it out with this tool."
 authors = [
     { name = "Lubaba Nawla", email = "lubabanawla@gmail.com" },
