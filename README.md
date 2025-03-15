@@ -11,9 +11,9 @@ This project was for sh*ts and giggles. Don't take this seriously and if the pro
 To run this project, follow these steps:
 1. Clone the repository.
 2. Ensure you have Flask installed:
-`pip install flask`
+```pip install flask```
 3. Run the Flask app:
-`python main.py`
+```python main.p```
 4. Open your web browser and navigate to the address shown in the terminal output.
 
 ## Watch our demo
