@@ -13,7 +13,7 @@ To run this project, follow these steps:
 2. Ensure you have Flask installed:
 ```pip install flask```
 3. Run the Flask app:
-```python main.p```
+```python main.py```
 4. Open your web browser and navigate to the address shown in the terminal output.
 
 ## Watch our demo
