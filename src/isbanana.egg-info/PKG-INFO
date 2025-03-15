@@ -1,0 +1,11 @@
+Metadata-Version: 2.2
+Name: isbanana
+Version: 0.1.0
+Summary: Are you a banana? Probably not. But you can check it out with this tool.
+Author-email: Lubaba Nawla <lubabanawla@gmail.com>, Issac Liu <issac@matchatea.dev>
+License: MIT
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: flask>=3.1.0
+Requires-Dist: opencv-python>=4.11.0.86

@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: is-croissant
+Version: 0.1.0
+Summary: Add your description here
+Author-email: Lubaba Nawla <lubabanawla@gmail.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: flask>=3.1.0
+Requires-Dist: opencv-python>=4.11.0.86

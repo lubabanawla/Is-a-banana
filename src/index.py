@@ -53,7 +53,7 @@ def gen_frames():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('indexmainmain.html')
 
 @app.route('/video_feed')
 def video_feed():
@@ -61,3 +61,7 @@ def video_feed():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+def main():
+    # Start the Flask app
+    app.run()

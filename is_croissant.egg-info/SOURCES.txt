@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+api/index.py
+is_croissant.egg-info/PKG-INFO
+is_croissant.egg-info/SOURCES.txt
+is_croissant.egg-info/dependency_links.txt
+is_croissant.egg-info/requires.txt
+is_croissant.egg-info/top_level.txt

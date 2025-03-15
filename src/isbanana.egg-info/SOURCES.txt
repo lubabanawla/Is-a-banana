@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/index.py
+src/isbanana.egg-info/PKG-INFO
+src/isbanana.egg-info/SOURCES.txt
+src/isbanana.egg-info/dependency_links.txt
+src/isbanana.egg-info/entry_points.txt
+src/isbanana.egg-info/requires.txt
+src/isbanana.egg-info/top_level.txt
