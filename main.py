@@ -11,34 +11,51 @@ def gen_frames():
         if not success:
             break
         else:
-            # Convert the frame to HSV color space for color detection
             hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-            # Define HSV range for a typical yellow color (tweak as needed)
             lower_yellow = np.array([20, 100, 100])
             upper_yellow = np.array([30, 255, 255])
             mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
-            # Count the number of pixels within the yellow range
-            yellow_pixels = cv2.countNonZero(mask)
-            if yellow_pixels > 500:  # Adjust threshold based on your environment
-                print("Yellow object detected!")
-            else:
-                print("No yellow object detected.")
 
-            # Encode the frame in JPEG format
+            contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            banana_detected = False
+
+            for cnt in contours:
+                area = cv2.contourArea(cnt)
+                if area > 500:  
+                   
+                    hull = cv2.convexHull(cnt, returnPoints=False)
+                    if hull is not None and len(hull) > 3:
+                        try:
+                            defects = cv2.convexityDefects(cnt, hull)
+                        except cv2.error as e:
+                            defects = None
+
+                        if defects is not None:
+                            significant_defects = 0
+                            for i in range(defects.shape[0]):
+                                s, e, f, d = defects[i, 0]
+                                if d > 1000:  
+                                    significant_defects += 1
+                            if significant_defects >= 1:
+                                banana_detected = True
+                                break
+
+            if banana_detected:
+                print("Banana detected!")
+            else:
+                print("Not a banana!")
+
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
-            # Yield a byte string in the format required for a multipart response
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 @app.route('/')
 def index():
-    # Render the HTML page
     return render_template('index.html')
 
 @app.route('/video_feed')
 def video_feed():
-    # Return the response generated along with the specific media type (mime type)
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
