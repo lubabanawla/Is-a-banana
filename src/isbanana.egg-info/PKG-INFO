@@ -7,5 +7,13 @@ License: MIT
 Requires-Python: >=3.13
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: flask>=3.1.0
-Requires-Dist: opencv-python>=4.11.0.86
+Requires-Dist: blinker==1.9.0
+Requires-Dist: click==8.1.8
+Requires-Dist: cv==1.0.0
+Requires-Dist: flask==3.1.0
+Requires-Dist: itsdangerous==2.2.0
+Requires-Dist: jinja2==3.1.6
+Requires-Dist: markupsafe==3.0.2
+Requires-Dist: numpy==2.2.3
+Requires-Dist: opencv-python==4.11.0.86
+Requires-Dist: werkzeug==3.1.3

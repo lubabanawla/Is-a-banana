@@ -1,7 +1,7 @@
 LICENSE
 README.md
 pyproject.toml
-src/index.py
+src/isbanana/index.py
 src/isbanana.egg-info/PKG-INFO
 src/isbanana.egg-info/SOURCES.txt
 src/isbanana.egg-info/dependency_links.txt
