@@ -11,16 +11,21 @@ def gen_frames():
         if not success:
             break
         else:
+            # Convert the frame to HSV color space for color detection
             hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-            lower_brown = np.array([10, 100, 20])
-            upper_brown = np.array([20, 255, 200])
-            mask = cv2.inRange(hsv, lower_brown, upper_brown)
-            brown_pixels = cv2.countNonZero(mask)
-            if brown_pixels > 500: 
-                print("Brown object detected!")
+            # Define HSV range for a typical yellow color (tweak as needed)
+            lower_yellow = np.array([20, 100, 100])
+            upper_yellow = np.array([30, 255, 255])
+            mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
+            # Count the number of pixels within the yellow range
+            yellow_pixels = cv2.countNonZero(mask)
+            if yellow_pixels > 500:  # Adjust threshold based on your environment
+                print("Yellow object detected!")
 
+            # Encode the frame in JPEG format
             ret, buffer = cv2.imencode('.jpg', frame)
             frame = buffer.tobytes()
+            # Yield a byte string in the format required for a multipart response
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
