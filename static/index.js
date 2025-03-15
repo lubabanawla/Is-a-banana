@@ -11,6 +11,31 @@ let dy = 2;
 let imageIndex = 0;
 const images = ['bananaimage1.png', 'bananaimage2.png', 'bananaimage3.png'];
 
+const youtubeLinks = [
+    "https://www.youtube.com/watch?v=v2DxBsWk3w8",
+    "https://www.youtube.com/watch?v=Zd8bNW4DG5E",
+    "https://www.youtube.com/watch?v=D0Pu7ZgEAwU",
+    "https://www.youtube.com/watch?v=abBYedMthaw",
+    "https://www.youtube.com/watch?v=StjW_iuFln4",
+    "https://www.youtube.com/watch?v=GecGmXBCpfI",
+    "https://www.youtube.com/watch?v=AfRjTmNJaLk",
+    "https://www.youtube.com/watch?v=tvO-LTGIrXo",
+    "https://www.youtube.com/watch?v=WjUvRs4pBuI",
+    "https://www.youtube.com/watch?v=8Pc0AEbfnBM",
+    "https://www.youtube.com/watch?v=poa_QBvtIBA",
+    "https://www.youtube.com/watch?v=QJ7jJvYXOcY",
+    "https://www.youtube.com/watch?v=TimKU5bAEDQ",
+    "https://www.youtube.com/watch?v=FQLPKpvIUZY",
+    "https://www.youtube.com/watch?v=omAK-LkWKME",
+    "https://www.youtube.com/watch?v=CBEvfZu4HE4",
+    "https://www.youtube.com/watch?v=FZYh6lPymJ0",
+    "https://www.youtube.com/watch?v=biUwIqFr4FM",
+    "https://www.youtube.com/watch?v=yaapnjOofXI",
+    "https://www.youtube.com/watch?v=TAeNlpUIlRs",
+    "https://www.youtube.com/watch?v=iDLmYZ5HqgM",
+    "https://www.youtube.com/watch?v=aYHzV2Y9UgY"
+];
+
 function animate() {
   const maxX = window.innerWidth - banana.width;
   const maxY = window.innerHeight - banana.height;
@@ -56,7 +81,7 @@ function showRandomPhrase(index) {
   speechBubble.classList.remove('hidden');
   setTimeout(() => {
     speechBubble.classList.add('hidden');
-  }, 1500); // Changed from 3000 to 1500 for faster speech
+  }, 1500);
 }
 
 function showMultiplyButton() {
@@ -97,11 +122,15 @@ function multiplyMinions() {
     newMinion.dataset.dx = dx;
     newMinion.dataset.dy = dy;
     
-    // Click handler to remove minion
+    // Click handler to remove minion and redirect
     newMinion.onclick = function() {
       this.remove();
       minions.splice(minions.indexOf(this), 1);
       updateMinionCounter();
+      
+      // Redirect to a random YouTube link
+      const randomLink = youtubeLinks[Math.floor(Math.random() * youtubeLinks.length)];
+      window.open(randomLink, '_blank');
     };
     
     document.body.appendChild(newMinion);
