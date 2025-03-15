@@ -21,6 +21,8 @@ def gen_frames():
             yellow_pixels = cv2.countNonZero(mask)
             if yellow_pixels > 500:  # Adjust threshold based on your environment
                 print("Yellow object detected!")
+            else:
+                print("No yellow object detected.")
 
             # Encode the frame in JPEG format
             ret, buffer = cv2.imencode('.jpg', frame)
