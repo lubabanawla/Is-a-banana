@@ -1,0 +1,14 @@
+[project]
+name = "is-croissant"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Lubaba Nawla", email = "lubabanawla@gmail.com" },
+    { name = "Issac Liu", email = "issac@matchatea.dev" },
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask>=3.1.0",
+    "opencv-python>=4.11.0.86",
+]
