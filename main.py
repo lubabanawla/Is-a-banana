@@ -40,7 +40,7 @@ def gen_frames():
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             
             if banana_contours:
-                cv2.putText(frame, "Banana detected!", (10, 50),
+                cv2.putText(frame, "Banana detected!", (10, frame.shape[0] - 30),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
                 print("Banana detected!")
             else:
