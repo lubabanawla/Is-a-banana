@@ -10,12 +10,14 @@ This project was for sh*ts and giggles. Don't take this seriously and if the pro
 
 To run this project, follow these steps:
 1. Clone the repository.
-2. Ensure you have Flask installed:
-```pip install flask```
-3. Run the Flask app:
-```python main.py```
-4. Open your web browser and navigate to the address shown in the terminal output.
+2. Create a new virtual enviorment and activate it. If you're using `uv`, run the following command in the folder of the repository:
+```bash
+uv venv && source .venv/bin/activate
+```
+3. Run the app.
+```python src/isbanana/index.py```
+4. Open your web browser and navigate to the address shown in the terminal output. This usually is `127.0.0.1:5500`, though this may be different.
 
 ## Watch our demo
 
-[Insert link to demo video here]
+[Insert link to demo video here](https://drive.google.com/file/d/12aU0nHR7Ap7paxsQoQUG2jsPQv77BIog/view?usp=sharing)
