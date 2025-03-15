@@ -46,22 +46,31 @@ const minionPhrases = [
   "Banana!",
   "Poopaye!",
   "Tank yu!",
-  "Tulaliloo ti amo!",
+  "Tulaliloo ti amo!"
 ];
 
-function showRandomPhrase() {
-  const randomPhrase = minionPhrases[Math.floor(Math.random() * minionPhrases.length)];
+function showRandomPhrase(index) {
+  const phraseIndex = index !== undefined ? index : Math.floor(Math.random() * minionPhrases.length);
+  const randomPhrase = minionPhrases[phraseIndex];
   speechText.textContent = randomPhrase;
   speechBubble.classList.remove('hidden');
   setTimeout(() => {
     speechBubble.classList.add('hidden');
-  }, 3000);
+  }, 1500); // Changed from 3000 to 1500 for faster speech
 }
 
 function showMultiplyButton() {
   actionButton.textContent = "CLICK ME! CLICK ME! CLICK ME!";
+  actionButton.style.backgroundColor = "yellow";
   actionButton.classList.remove('hidden');
   actionButton.onclick = multiplyMinions;
+}
+
+function showClearButton() {
+  actionButton.textContent = "CLEAR ALL MINIONS";
+  actionButton.style.backgroundColor = "red";
+  actionButton.classList.remove('hidden');
+  actionButton.onclick = clearAllMinions;
 }
 
 function multiplyMinions() {
@@ -153,12 +162,27 @@ function multiplyMinions() {
   actionButton.classList.add('hidden');
 }
 
+function clearAllMinions() {
+  const movingMinions = document.querySelectorAll('.moving-minion');
+  movingMinions.forEach(minion => minion.remove());
+  
+  const counter = document.getElementById('minion-counter');
+  if (counter) counter.remove();
+  
+  actionButton.classList.add('hidden');
+  
+  // Show the "Don't click me..." phrase
+  showRandomPhrase(minionPhrases.length - 1);
+}
+
 function performRandomAction() {
   const randomAction = Math.random();
-  if (randomAction < 0.7) {
+  if (randomAction < 0.6) {
     showRandomPhrase();
-  } else {
+  } else if (randomAction < 0.8) {
     showMultiplyButton();
+  } else {
+    showClearButton();
   }
 }
 
